@@ -33,7 +33,7 @@ public class FirstTestCase {
 	
 	String message = driver.findElement(By.tagName("p")).getText();
 	System.out.println(message);
-	driver.quit();
+	
 	}
 
 }
