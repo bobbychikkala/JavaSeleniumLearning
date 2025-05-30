@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver.Window;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +18,28 @@ public class TestCase2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		WebDriver driver = new EdgeDriver ();
+//		//WebDriver driver = new FirefoxDriver ();
+//		browserTest("Chrome");
+//		browserTest("edgE");
+		browserTest("Chroe");
+	
+	}
+	
+	static void browserTest(String browser) {
+		WebDriver driver ;
+		switch(browser.toLowerCase()){
+			case "chrome":
+				driver = new ChromeDriver();
+				break;
+			case "edge":
+				driver = new EdgeDriver();
+				browser= "Edge";
+				break;
+			default:
+				driver = new FirefoxDriver ();
+				browser = "FireFox";
+		}
+		
 		Options option =driver.manage();
 		Window window=option.window();
 		window.maximize();
@@ -26,10 +48,12 @@ public class TestCase2 {
 		driver.findElement(By.xpath("//*[@id=\"submitForm\"]")).click();
 	
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		//driver.findElement(By.partialLinkText("ultimate")).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	//	driver.findElement(By.xpath("//*[contains(text(),'services')]")).click();
 		WebElement e =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'services')]")));
 		e.click();
+		System.out.println(driver.getTitle()+"Tested on "+browser);
+		driver.quit();
 	}
 
 }
