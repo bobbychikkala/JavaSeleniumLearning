@@ -51,7 +51,17 @@ public class OpenBrowser{
 		element.sendKeys(inputValue);
 		
 	}
-
+	String title() {
+		return driver.getTitle();
+	}
+	
+	String webElementText(String locatorType, String LocatorValue) {
+		WebElement element = extracted( locatorType, LocatorValue);
+		return element.getText();
+	}
+	
+	void close() {driver.close();}
+	
 	private WebElement extracted( String locatorType, String LocatorValue) {
 		WebElement element = null;
 		locatorType = locatorType.toLowerCase();

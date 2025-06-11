@@ -52,6 +52,7 @@ public class TestCase2 {
 	//	driver.findElement(By.xpath("//*[contains(text(),'services')]")).click();
 		WebElement e =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'services')]")));
 		e.click();
+	
 		System.out.println(driver.getTitle()+"Tested on "+browser);
 		driver.quit();
 	}

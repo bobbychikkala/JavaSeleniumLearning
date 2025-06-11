@@ -6,13 +6,15 @@ public class TestCase3 {
 		// TODO Auto-generated method stub
 		String browser ="chrome";
 		String url ="https://opensource-demo.orangehrmlive.com/";
-		OpenBrowser open =new OpenBrowser(browser);
-		open.launchWebsite(url);
-		open.maximizeBrowser();
-		open.inputTextBox("name","username","Admin");
-		open.inputTextBox("name","password","admin123");
-		open.clickButton("tagname", "Button");
+		OpenBrowser app =new OpenBrowser(browser);
+		app.launchWebsite(url);
+		app.maximizeBrowser();
+		app.inputTextBox("name","username","Admin");
+		app.inputTextBox("name","password","admin123");
+		app.clickButton("tagname", "Button");
+		System.out.println(app.title());
 		
+		app.close();
 		
 		
 		
