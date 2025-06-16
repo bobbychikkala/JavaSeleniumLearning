@@ -10,6 +10,7 @@ public class FluentWaitTestA {
 		
 		WebDriver driver ;
 		driver = new ChromeDriver();
+		driver.get("");
 		
 
 	}
