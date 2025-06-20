@@ -41,7 +41,7 @@ public class TestProperties {
 	  }
 	  driver.get(config.getProperty("testsiteurl"));
 	  driver.manage().window().maximize();
-	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(config.getProperty("implicit.wait"))));
+	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(config.getProperty("implicitWait"))));
 	  
 	  driver.findElement(By.xpath(OR.getProperty("username_XPATH"))).sendKeys("hemantgandhi");
 	  driver.findElement(By.id(OR.getProperty("password_ID"))).sendKeys("sdfssddfsfs");

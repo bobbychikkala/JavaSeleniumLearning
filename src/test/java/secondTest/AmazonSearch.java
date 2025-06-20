@@ -20,7 +20,12 @@ public class AmazonSearch {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		try {
 			driver.findElement(By.xpath("//*[@alt=\"Continue shopping\"]")).click();
+		}
+		catch (Exception e) {
+			//	System.out.println("Hemant"+e.getCause());
+		}
 
+		finally {
 			String mobileName = "iPhone";
 			driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys(mobileName);
 			driver.findElement(By.id("nav-search-submit-button")).click();
@@ -30,25 +35,13 @@ public class AmazonSearch {
 			List<WebElement> prices = driver.findElements(By.xpath(dynamicTitleXpath
 					+ "/parent::h2/parent::a/parent::div/parent::div/div[3]//span[@class=\"a-price\"]"));
 			System.out.println(titles.size() + " " + mobileName + " products found");
+
 			for (int i = 0; i < titles.size(); i++) {
 				System.out.println();
-				System.out.println(i + 1 + " . " + titles.get(i).getText().substring(0));
-				System.out.println("    " + prices.get(i).getText());
-
+				System.out.print(i + 1 + " . " + titles.get(i).getText().substring(0,45));
+				System.out.println("  Price:" + prices.get(i).getText());	
 			}
-		} catch (NoSuchElementException e) {
-			System.out.println("Hemant"+e.getCause());
-
-		} catch (StaleElementReferenceException e) {
-			System.out.println("Bobby");
 		}
-		/*
-		 * catch(Exception e){ System.out.println("Badhri"); }
-		 */
-		finally {
-			driver.quit();
-		}
-
+		driver.quit();
 	}
-
 }
