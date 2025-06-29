@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.Duration;
 import java.util.logging.FileHandler;
 
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,7 +16,8 @@ public class Screenshot {
 		driver.get("https://www.amazon.in/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		
+		File file=driver.getScreenshotAs(OutputType.FILE);
+	
 		
 
 	}

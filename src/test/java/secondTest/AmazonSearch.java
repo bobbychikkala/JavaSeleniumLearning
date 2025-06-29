@@ -21,9 +21,7 @@ public class AmazonSearch {
 		try {
 			driver.findElement(By.xpath("//*[@alt=\"Continue shopping\"]")).click();
 		}
-		catch (Exception e) {
-			//	System.out.println("Hemant"+e.getCause());
-		}
+		catch (Exception e) {}
 
 		finally {
 			String mobileName = "iPhone";
